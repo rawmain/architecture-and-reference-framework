@@ -13,8 +13,11 @@
       
       
       
+        
+      
+      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
@@ -22,10 +25,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -50,34 +53,18 @@
 
     
     
-      
-        <meta  property="og:type"  content="website" >
-      
-        <meta  property="og:title"  content="S certificate transparancy - European Digital Identity" >
-      
-        <meta  property="og:description"  content="None" >
-      
-        <meta  property="og:image"  content="https://eu-digital-identity-wallet.github.io/eudi-doc-architecture-and-reference-framework/1.0.0/assets/images/social/discussion-topics/s-certificate-transparancy.png" >
-      
-        <meta  property="og:image:type"  content="image/png" >
-      
-        <meta  property="og:image:width"  content="1200" >
-      
-        <meta  property="og:image:height"  content="630" >
-      
-        <meta  property="og:url"  content="https://eu-digital-identity-wallet.github.io/eudi-doc-architecture-and-reference-framework/1.0.0/discussion-topics/s-certificate-transparancy/" >
-      
-        <meta  name="twitter:card"  content="summary_large_image" >
-      
-        <meta  name="twitter:title"  content="S certificate transparancy - European Digital Identity" >
-      
-        <meta  name="twitter:description"  content="None" >
-      
-        <meta  name="twitter:image"  content="https://eu-digital-identity-wallet.github.io/eudi-doc-architecture-and-reference-framework/1.0.0/assets/images/social/discussion-topics/s-certificate-transparancy.png" >
-      
-    
-    
-  </head>
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="S certificate transparancy - European Digital Identity" />
+<meta property="og:image" content="https://eu-digital-identity-wallet.github.io/eudi-doc-architecture-and-reference-framework/1.0.0/assets/images/social/discussion-topics/s-certificate-transparancy.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://eu-digital-identity-wallet.github.io/eudi-doc-architecture-and-reference-framework/1.0.0/discussion-topics/s-certificate-transparancy/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="S certificate transparancy - European Digital Identity" />
+<meta property="twitter:image" content="https://eu-digital-identity-wallet.github.io/eudi-doc-architecture-and-reference-framework/1.0.0/assets/images/social/discussion-topics/s-certificate-transparancy.png" />
+</head>
   
   
     
@@ -334,9 +321,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     European Digital Identity Wallet
+  
+
     
   </span>
+  
   
 
       </a>
@@ -356,9 +348,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Architecture and reference framework
+  
+
     
   </span>
+  
   
 
       </a>
@@ -378,9 +375,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Discussion topics
+  
+
     
   </span>
+  
   
 
       </a>
@@ -400,9 +402,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Technical specifications
+  
+
     
   </span>
+  
   
 
       </a>
@@ -420,6 +427,15 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -429,7 +445,7 @@
   
 
 
-<p>Version 0.5, updated 8 October 2025</p>
+<p>Version 1.0, updated 6 November 2025</p>
 <p><a href="https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/discussions/584">Link to GitHub discussion</a></p>
 <h1 id="topic-s-certificate-transparency">Topic S - Certificate Transparency</h1>
 <h2 id="1-introduction">1 Introduction</h2>
@@ -462,7 +478,7 @@ of a CA issuing access certificates that it should include:</p>
 <li><em>a description, where relevant, on how a provider of wallet-relying party 
 access certificates logs all wallet-relying party access certificates they 
 have issued, in compliance with internet engineering task force (‘IETF’) 
-request for comments (‘RFC’) 9162 Certificate Transparency version 2.0</em></li>
+request for comments (‘RFC’) 9162 Certificate Transparency Version 2.0</em></li>
 </ul>
 <p>Note: “<em>…a provider of wallet-relying party access certificates</em>” – above is 
 a CA authorized to issue access certificates.</p>
@@ -480,7 +496,9 @@ be changed or removed in a future version of this ARF.</p>
 <h3 id="31-certificate-transparency">3.1 Certificate Transparency</h3>
 <p>A CA issuing access certificates SHALL register these in a CT log according to 
 RFC 9162. Examples of CT log providers are Google and Cloudflare for SSL/TLS 
-certificates issued for a domain or subdomain.</p>
+certificates issued for a domain or subdomain. Currently no CT log providers are available in Europe. How to address this situation is out of scope of the ARF.</p>
+<p>CT logs are used to ensure accuracy of issued access certificates with two or more log providers. This does not mean that the RP is registered or published twice. It only means that there is way to detect access certificates that were issued in error or fraudulently.</p>
+<p>Trust provided by CT logs is limited to the issuance of access certificates. They are two or more sources of truth stating who an access certificate has been issued to.</p>
 <h4 id="certificate-transparency-logs">Certificate Transparency Logs</h4>
 <p>Certificate Transparency (CT) is an open framework designed to improve the 
 security and accountability of the Public Key Infrastructure (PKI) used on the 
@@ -551,9 +569,8 @@ This distributed oversight ensures that the log remains immutable and
 append-only, and that no unauthorized modifications or omissions go unnoticed. 
 Finally, drawing from the Web PKI best practice, it is important that
  <strong>each certificate be registered in at least two independent CT logs</strong>. </p>
-<p>It is assumed that the new European CT log infrastructure will define what 
- version of RFC 9162 and other implementation requirements such as the number 
- of CT logs a CA issuing access certificates shall register with is defined.</p>
+<p>It is assumed that the new European CT log infrastructure will define 
+ which standard to use, version of RFC 9162 or RFC 6962, and other implementation requirements such as the number of CT logs a CA issuing access certificates shall register with is defined.</p>
 <h4 id="332-ct-log-usage">3.3.2 CT log usage</h4>
 <p>In the Web PKI, browsers do not directly interact with Certificate Transparency 
 (CT) logs to verify the inclusion of a certificate. Instead, they <strong>trust the 
@@ -577,7 +594,7 @@ issuers shall cooperate with monitoring services to detect potentially mis-issue
 for detecting new domains (see for example, Kondracki et al. "Uninvited Guests: 
 Analyzing the Identity and Behavior of Certificate Transparency Bots", in Usenix 
 Security, 2022)</p>
-<p>However, this is not expected to be case for CT logs for access certificates, 
+<p>However, this is not expected to be the case for CT logs for access certificates, 
 as the list of access certificates is already public. Collating all access certificates in one or more CT logs does not seem to pose any threat as this information is already publicly available.</p>
 <h4 id="334-incident-response">3.3.4 Incident response</h4>
 <p>It is important to recognise that <strong>Certificate Transparency (CT) logs do 
@@ -613,27 +630,27 @@ the CA, the incident can be escalated to the service operator of the Trusted Lis
 <tbody>
 <tr>
 <td>CT_01</td>
-<td>A CA issuing access certificates SHALL register these in a CT log according to RFC 9162, if such a log is available.</td>
+<td>An Access CA issuing access certificates SHALL register these in a CT log according to RFC 9162, if such a log is available for access certificates.</td>
 </tr>
 <tr>
 <td>CT_02</td>
-<td>A CA issuing access certificates SHALL include a description in its CPS how all access certificates are logged according to RFC 9162</td>
+<td>An Access CA issuing access certificates SHALL describe in its CPS how it logs all access certificates.</td>
 </tr>
 <tr>
 <td>CT_03</td>
-<td>In case a CT log provider is available, the Access CA's SHALL act as monitors in the CT eco-system</td>
+<td>In case a CT log provider for access certificates is available, all Access CAs SHALL act as monitors in the CT ecosystem. Access CAs SHOULD still monitor the CT logs in situations of temporary unavailability.</td>
 </tr>
 <tr>
 <td>CT_04</td>
-<td>The issuing CA SHALL include at least one Signed Certificate Timestamp (SCT) in the certificate</td>
+<td>An Access CA SHALL include at least one Signed Certificate Timestamp (SCT) in each access certificate.</td>
 </tr>
 <tr>
 <td>CT_05</td>
-<td>The Wallet Unit SHALL check that the access certificate includes at least one Signed Certificate Timestamp (SCT)</td>
+<td>When verifying an access certificate during PID or attestation issuance or presentation, a Wallet Unit SHALL also verify that the access certificate includes at least one valid Signed Certificate Timestamp (SCT).</td>
 </tr>
 <tr>
 <td>CT_06</td>
-<td>A Wallet Unit SHALL not communicate with a RP which access certificate does not include a SCT</td>
+<td>If an access certificate does not include a valid SCT, a Wallet Unit SHALL handle this as a failure or Relying Party authentication, in compliance with all requirements in [<a href="#a234-topic-6---relying-party-authentication-and-user-approval">Topic 6</a>] and in particular requirement RPI_06a.</td>
 </tr>
 </tbody>
 </table>
@@ -641,11 +658,13 @@ the CA, the incident can be escalated to the service operator of the Trusted Lis
 1. How the certificate verifier performs checks against the CT log? Directly or via a fraud detection system?
 2. What checks that should be performed and what constitutes a malicious entry?
 3. What protocols that should be offered by a fraud detection system to all certificate verifiers?</p>
-<h3 id="42-version-of-rfc-9162-in-cir-eu-2025848">4.2 Version of RFC 9162 in CIR (EU) 2025/848</h3>
-<p>The CIR clearly states that version 2 of RFC 9162 shall be used. From comments received it seems that the previous version is implemented and used. As version 2 includes substantial improvements and the Commission might be developing a European CT log infrastructure it should be a task for this initiative to decide which version to use. Consideration of which version to use is dependent on if existing services (version 1) from Cloudflare and Google are to be used.</p>
+<h3 id="42-rfc-9162-in-cir-eu-2025848">4.2 RFC 9162 in CIR (EU) 2025/848</h3>
+<p>The CIR clearly states that RFC 9162 shall be used. From comments received it seems that the previous standard (RFC 6962) is implemented and used. As RFC 9162 includes substantial improvements and the Commission might be developing a European CT log infrastructure it should be a task for this initiative to decide which  standard
+to use. Consideration of which version to use is dependent on if existing services from Cloudflare and Google are to be used.</p>
 <h3 id="43-proposed-arf-changes">4.3 Proposed ARF changes</h3>
 <p>It is planned to introduce a new section in the ARF on Certificate Transparency. This new section will describe aspects of CA’s issuing access certificates.</p>
 <p>In addition to these planned changes, further changes on this subject will follow the outcome of the discussion.</p>
+<p>Topic S will be integrated into ARF 2.7.0</p>
 <h2 id="5-references">5 References</h2>
 <table>
 <thead>
@@ -663,6 +682,10 @@ the CA, the incident can be escalated to the service operator of the Trusted Lis
 <td>[CIR 2025/848]</td>
 <td>Commission Implementing Regulation (EU) 2025/848</td>
 </tr>
+<tr>
+<td>[RFC 9162]</td>
+<td>IETF Certificate Transparency Version 2.0</td>
+</tr>
 </tbody>
 </table>
 
@@ -671,9 +694,6 @@ the CA, the incident can be escalated to the service operator of the Trusted Lis
 
 
 
-
-  
-  
 
 
 
@@ -722,10 +742,11 @@ the CA, the incident can be escalated to the service operator of the Trusted Lis
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.top", "toc.integrate", "toc.follow"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.top", "toc.integrate", "toc.follow"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>
