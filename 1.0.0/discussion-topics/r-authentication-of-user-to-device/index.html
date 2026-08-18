@@ -9,6 +9,8 @@
         <meta name="description" content="Architecture and Reference Framework (ARF) of the European Digital Identity Wallet: main narrative, annexes with normative high-level requirements, technical specifications, and discussion topics.">
       
       
+        <meta name="author" content="European Commission - DG CNECT">
+      
       
         <link rel="canonical" href="https://eu-digital-identity-wallet.github.io/eudi-doc-architecture-and-reference-framework/1.0.0/discussion-topics/r-authentication-of-user-to-device/">
       
@@ -53,6 +55,8 @@
       
     
     
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
       <link rel="stylesheet" href="../../media/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -84,7 +88,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -111,17 +115,30 @@
 
   
 
+
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="European Digital Identity" class="md-header__button md-logo" aria-label="European Digital Identity" data-md-component="logo">
+  <nav
+    class="md-header__inner md-grid"
+    aria-label="Header"
+  >
+
+    <a
+      href="../.."
+      title="European Digital Identity"
+      class="md-header__button md-logo"
+      aria-label="European Digital Identity"
+      data-md-component="logo"
+    >
       
   <img src="../../media/logo_eudi_white.svg" alt="logo">
 
     </a>
+
     <label class="md-header__button md-icon" for="__drawer">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
+
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
@@ -138,6 +155,7 @@
         </div>
       </div>
     </div>
+
     
       
         <form class="md-header__option" data-md-component="palette">
@@ -145,7 +163,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
@@ -155,7 +173,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
@@ -165,10 +183,13 @@
 </form>
       
     
+
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+
     
+
     
       
       
@@ -217,6 +238,11 @@
 </div>
       
     
+      <a href="https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/releases/latest/download/architecture-and-reference-framework-main-and-annexes.pdf" title="Download the ARF as PDF" class="md-header__button md-icon" aria-label="Download the ARF as PDF">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14 2 6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm4 18V9h-5V4H6v16zm-6-1-4-4h2.5v-3h3v3H16z"/></svg>
+      </a>
+    
+
     
       <div class="md-header__source">
         <a href="https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework" title="Go to repository" class="md-source" data-md-component="source">
@@ -231,6 +257,7 @@
       </div>
     
   </nav>
+
   
     
       
@@ -265,9 +292,11 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../architecture-and-reference-framework-main/" class="md-tabs__link">
+        <a href="../../about/" class="md-tabs__link">
           
   
+  
+    
   
   Architecture and Reference Framework
 
@@ -291,6 +320,8 @@
           
   
   
+    
+  
   Discussion Topics
 
         </a>
@@ -310,6 +341,8 @@
         <a href="../../technical-specifications/" class="md-tabs__link">
           
   
+  
+    
   
   Technical Specifications
 
@@ -383,9 +416,7 @@
   
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="European Digital Identity" class="md-nav__button md-logo" aria-label="European Digital Identity" data-md-component="logo">
       
@@ -444,6 +475,14 @@
   
     
     
+      
+        
+      
+        
+      
+        
+      
+    
     
     
       
@@ -493,14 +532,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture-and-reference-framework-main/" class="md-nav__link">
+      <a href="../../about/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Main Document
+    About
   
 
     
@@ -521,6 +560,34 @@
   
   
     
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -535,14 +602,15 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../main/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
     
   
-    Annexes
+    Main Document
   
 
     
@@ -550,19 +618,27 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Annexes
+    Main Document
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -571,14 +647,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../annexes/" class="md-nav__link">
+      <a href="../../main/01-introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Architecture and Reference Annexes
+    1 Introduction
   
 
     
@@ -590,6 +666,367 @@
     </li>
   
 
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../main/02-eudi-wallet-functionalities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 EUDI Wallet functionalities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../main/03-roles-within-the-eudi-wallet-ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 Roles within the EUDI Wallet ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../main/04-high-level-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 High-level architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../main/05-data-model-and-data-exchange-protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 Data model and data exchange protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../main/06-trust-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6 Trust model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../main/07-wallet-solution-certification-and-risk-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7 Wallet Solution Certification and Risk Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../main/08-accessibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8 Accessibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../main/09-document-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9 Document development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../main/10-references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../main/11-annexes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 Annexes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../annexes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annexes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Annexes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
               
             
               
@@ -631,6 +1068,14 @@
   
     
     
+      
+        
+      
+        
+      
+        
+      
+    
     
     
       
@@ -641,10 +1086,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
         
           
-          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
             
   
   
@@ -662,8 +1107,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_3">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -782,6 +1227,12 @@
   
     
     
+      
+        
+      
+        
+      
+    
     
     
       
@@ -792,10 +1243,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_4" >
         
           
-          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_3_4" id="__nav_2_3_4_label" tabindex="0">
             
   
   
@@ -813,8 +1264,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_4">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -902,6 +1353,12 @@
   
     
     
+      
+        
+      
+        
+      
+    
     
     
       
@@ -912,10 +1369,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_5" >
         
           
-          <label class="md-nav__link" for="__nav_2_2_5" id="__nav_2_2_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_3_5" id="__nav_2_3_5_label" tabindex="0">
             
   
   
@@ -933,8 +1390,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_5">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1039,6 +1496,72 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
     
     
       
@@ -1055,8 +1578,9 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1070,8 +1594,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
@@ -1084,32 +1614,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Discussion topics
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -2114,6 +2618,40 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
     
     
       
@@ -2127,8 +2665,9 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../technical-specifications/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -2142,8 +2681,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
@@ -2156,32 +2701,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../technical-specifications/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Essential Standards and Technical Specifications (STS)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -2499,7 +3018,63 @@
   
   
     <li class="md-nav__item">
-      <a href="../../technical-specifications/ts12-specification-of-strong-customer-authentication-%28sca%29-Implementation-with-the-Wallet/" class="md-nav__link">
+      <a href="../../technical-specifications/ts12-electronic-payments-SCA-implementation-with-wallet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification of Strong Customer Authentication (SCA) Implementation with the Wallet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical-specifications/ts13-zksnark/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification of Strong Customer Authentication (SCA) Implementation with the Wallet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical-specifications/ts14-zkps-from-mms/" class="md-nav__link">
         
   
   
@@ -2587,6 +3162,132 @@
                 </div>
               </div>
             
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Introduction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-discussion-paper-topic-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Discussion Paper Topic Description
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-key-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Key Words
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-document-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Document Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-legal-requirements-for-authentication-of-the-user-to-the-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Legal Requirements for authentication of the User to the device
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Legal Requirements for authentication of the User to the device">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-european-digital-identity-regulation-about-authentication-of-the-user-to-the-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 European Digital Identity Regulation about authentication of the User to the device
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-implementing-acts-about-authentication-of-the-user-to-the-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Implementing acts about authentication of the User to the device
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-discussion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Discussion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           
@@ -2696,14 +3397,14 @@ In addition, 'must' (non-capitalised) is used to indicate an external constraint
 <h2 id="2-legal-requirements-for-authentication-of-the-user-to-the-device">2 Legal Requirements for authentication of the User to the device<a class="headerlink" href="#2-legal-requirements-for-authentication-of-the-user-to-the-device" title="Link to this section">&para;</a></h2>
 <p>The following legal texts impose requirements on authentication of the User to the device:</p>
 <ul>
-<li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401183" title="Regulation (EU) 2024/1183 of the European Parliament and of the Council of 11 April 2024 amending Regulation (EU) No 910/2014 as regards establishing the Europe">European Digital Identity Regulation</a>,</li>
-<li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402979" title="Commission Implementing Regulation 2024/2979 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European Parliament">CIR 2024/2979</a> as regards the integrity and core functionalities of European Digital Identity Wallets,</li>
+<li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401183" title="Regulation (EU) 2024/1183 of the European Parliament and of the Council of 11 April 2024 amending Regulation (EU) No 910/2014 as regards establishing the">European Digital Identity Regulation</a>,</li>
+<li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402979" title="Commission Implementing Regulation (EU) 2024/2979 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European">CIR 2024/2979</a> as regards the integrity and core functionalities of European Digital Identity Wallets,</li>
 <li>[CIR 2015/1502] on setting out minimum technical specifications and procedures for assurance levels for electronic identification means,</li>
-<li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402981" title="Commission Implementing Regulation (EU) 2024/2981 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European Parli">CIR 2024/2981</a> as regards the certification of European Digital Identity Wallets.</li>
+<li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402981" title="Commission Implementing Regulation (EU) 2024/2981 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European">CIR 2024/2981</a> as regards the certification of European Digital Identity Wallets.</li>
 </ul>
 <p>This section recaps the respective legal requirements from these sources.</p>
-<h3 id="21-european-digital-identity-regulation-about-authentication-of-the-user-to-the-device">2.1  <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401183" title="Regulation (EU) 2024/1183 of the European Parliament and of the Council of 11 April 2024 amending Regulation (EU) No 910/2014 as regards establishing the Europe">European Digital Identity Regulation</a> about authentication of the User to the device<a class="headerlink" href="#21-european-digital-identity-regulation-about-authentication-of-the-user-to-the-device" title="Link to this section">&para;</a></h3>
-<p>The <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401183" title="Regulation (EU) 2024/1183 of the European Parliament and of the Council of 11 April 2024 amending Regulation (EU) No 910/2014 as regards establishing the Europe">European Digital Identity Regulation</a> does not contain direct requirements for authentication of the User to the device, however it provides definition of Strong User Authentication in Article 3(51):</p>
+<h3 id="21-european-digital-identity-regulation-about-authentication-of-the-user-to-the-device">2.1  <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401183" title="Regulation (EU) 2024/1183 of the European Parliament and of the Council of 11 April 2024 amending Regulation (EU) No 910/2014 as regards establishing the">European Digital Identity Regulation</a> about authentication of the User to the device<a class="headerlink" href="#21-european-digital-identity-regulation-about-authentication-of-the-user-to-the-device" title="Link to this section">&para;</a></h3>
+<p>The <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401183" title="Regulation (EU) 2024/1183 of the European Parliament and of the Council of 11 April 2024 amending Regulation (EU) No 910/2014 as regards establishing the">European Digital Identity Regulation</a> does not contain direct requirements for authentication of the User to the device, however it provides definition of Strong User Authentication in Article 3(51):</p>
 <blockquote>
 <p>‘strong user authentication’ means an authentication based on the use of at least two authentication factors from different categories of either knowledge, something only the user knows, possession, something only the user possesses or inherence, something the user is, that are independent, in that the breach of one does not compromise the reliability of the others, and is designed in such a way as to protect the confidentiality of the authentication data;</p>
 </blockquote>
@@ -2716,14 +3417,14 @@ In addition, 'must' (non-capitalised) is used to indicate an external constraint
 <blockquote>
 <p>meet the requirements set out in Article 8 with regard to assurance level high, in particular as applied to the requirements for identity proofing and verification, and electronic identification means management and authentication;</p>
 </blockquote>
-<p>Therefore the authentication methods provided by the device to the User shall (in the applicable scope, meaning when a PID is issued or presented) comply with requirements for LoA High and strong customer authentication, set out by <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401183" title="Regulation (EU) 2024/1183 of the European Parliament and of the Council of 11 April 2024 amending Regulation (EU) No 910/2014 as regards establishing the Europe">European Digital Identity Regulation</a> and the implementing acts (see the next sections).</p>
+<p>Therefore the authentication methods provided by the device to the User shall (in the applicable scope, meaning when a PID is issued or presented) comply with requirements for LoA High and strong customer authentication, set out by <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401183" title="Regulation (EU) 2024/1183 of the European Parliament and of the Council of 11 April 2024 amending Regulation (EU) No 910/2014 as regards establishing the">European Digital Identity Regulation</a> and the implementing acts (see the next sections).</p>
 <h3 id="22-implementing-acts-about-authentication-of-the-user-to-the-device">2.2 Implementing acts about authentication of the User to the device<a class="headerlink" href="#22-implementing-acts-about-authentication-of-the-user-to-the-device" title="Link to this section">&para;</a></h3>
-<p><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402979" title="Commission Implementing Regulation 2024/2979 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European Parliament">CIR 2024/2979</a> contains general requirements stating that:</p>
+<p><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402979" title="Commission Implementing Regulation (EU) 2024/2979 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European">CIR 2024/2979</a> contains general requirements stating that:</p>
 <ul>
 <li>the Wallet Unit shall authenticate the User prior to any further action with the Wallet Unit,</li>
 <li>the Wallet unit shall meet requirements for the characteristics and design of electronic identification means at assurance level high.</li>
 </ul>
-<p>Below are selected excerpts from the <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402979" title="Commission Implementing Regulation 2024/2979 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European Parliament">CIR 2024/2979</a> that establish these requirements.</p>
+<p>Below are selected excerpts from the <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402979" title="Commission Implementing Regulation (EU) 2024/2979 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European">CIR 2024/2979</a> that establish these requirements.</p>
 <p>Article 3(1):</p>
 <blockquote>
 <p>Wallet units shall not perform any functionality listed in Article 5a(4) of Regulation (EU) No 910/2014, except wallet user authentication to access the wallet unit, until the wallet unit has successfully authenticated the wallet user.</p>
@@ -2747,7 +3448,7 @@ In addition, 'must' (non-capitalised) is used to indicate an external constraint
 <p>Additional and more detailed requirements to User authentication mechanisms are defined in: ​</p>
 <ul>
 <li>[CIR 2015/1502]​, which contains in particular requirements for eID means at LoA High, such as related to activation process, use of two factors and protection against attackers with high attack potential;</li>
-<li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402981" title="Commission Implementing Regulation (EU) 2024/2981 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European Parli">CIR 2024/2981</a>, which provides list of threats in relation to i.a. User authentication, against which Wallet Solutions must provide proper security controls.</li>
+<li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402981" title="Commission Implementing Regulation (EU) 2024/2981 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European">CIR 2024/2981</a>, which provides list of threats in relation to i.a. User authentication, against which Wallet Solutions must provide proper security controls.</li>
 </ul>
 <p>Consequently, at least the following requirements needs to be taken into account from [CIR 2015/1502]:</p>
 <ul>
@@ -2773,7 +3474,7 @@ The electronic identification means is designed so that it can be reliably prote
 The authentication mechanism implements security controls for the verification of the electronic identification means, so that it is highly unlikely that activities such as guessing, eavesdropping, replay or manipulation of communication by an attacker with enhanced-basic attack potential can subvert the authentication mechanisms.
 The authentication mechanism implements security controls for the verification of the electronic identification means, so that it is highly unlikely that activities such as guessing, eavesdropping, replay or manipulation of communication by an attacker with high attack potential can subvert the authentication mechanisms.</p>
 </blockquote>
-<p>Most of the above referenced security requirements are related to the robustness and reliability of the mechanisms offered by the Wallet Solution and the User's device, and are to be proven by certification of the Wallet Solution, as defined by <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402981" title="Commission Implementing Regulation (EU) 2024/2981 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European Parli">CIR 2024/2981</a>.</p>
+<p>Most of the above referenced security requirements are related to the robustness and reliability of the mechanisms offered by the Wallet Solution and the User's device, and are to be proven by certification of the Wallet Solution, as defined by <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402981" title="Commission Implementing Regulation (EU) 2024/2981 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European">CIR 2024/2981</a>.</p>
 <h2 id="3-discussion">3 Discussion<a class="headerlink" href="#3-discussion" title="Link to this section">&para;</a></h2>
 <h1 id="31-interpretation-of-legal-requirements">3.1 Interpretation of legal requirements<a class="headerlink" href="#31-interpretation-of-legal-requirements" title="Link to this section">&para;</a></h1>
 <p>The following contexts of the User authentication to the device can be distinguished:​</p>
@@ -2837,7 +3538,7 @@ In the remaining two contexts (1) and (3), the LoA of authentication does not re
 </tbody>
 </table>
 <p>In the opinion of the ARF editors team, the above requirements are sufficient in principle, but they should be reworded and adapted for more clarity and for the reasons given under Question 2 below.</p>
-<p>The detailed requirements and the appropriate means or controls (eg. minimal length or complexity of the PIN/passwords, restricting the acceptable methods), are to be defined by the Wallet Solution providers to meet the requirements of LoA and the Wallet Solution certification (as set out by <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402981" title="Commission Implementing Regulation (EU) 2024/2981 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European Parli">CIR 2024/2981</a>).</p>
+<p>The detailed requirements and the appropriate means or controls (eg. minimal length or complexity of the PIN/passwords, restricting the acceptable methods), are to be defined by the Wallet Solution providers to meet the requirements of LoA and the Wallet Solution certification (as set out by <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402981" title="Commission Implementing Regulation (EU) 2024/2981 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European">CIR 2024/2981</a>).</p>
 <h2 id="33-question-1-is-there-a-need-to-update-the-requirements">3.3 Question 1: Is there a need to update the requirements?<a class="headerlink" href="#33-question-1-is-there-a-need-to-update-the-requirements" title="Link to this section">&para;</a></h2>
 <p>It is imperative to ensure as good User experience as possible. Therefore authentication of the User in all possible contexts ideally should use always the same mechanisms/factors and avoid unnecessary or redundant authentication. For this reason the following new HLR was proposed:</p>
 <table>
@@ -2871,11 +3572,11 @@ In the remaining two contexts (1) and (3), the LoA of authentication does not re
 </ol>
 <p>where User authentication by the WSCA/WSCD is not required for the last category.</p>
 <p><strong>Introduction of keystore component separate from WSCA/WSCD</strong></p>
-<p>Moreover, the second part of the proposed requirement WIAM_17a introduces the concept of a keystore, which has not been identified as a component of a Wallet Unit in the ARF thus far. The reason for introducing a keystore as a Wallet Unit component separate from the WSCA/WSCD is the following. From <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402981" title="Commission Implementing Regulation (EU) 2024/2981 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European Parli">CIR 2024/2981</a> it is clear that a WSCA/WSCD must be evaluated at Level of Assurance High. For example, Annex IV, section 2 (3) states</p>
+<p>Moreover, the second part of the proposed requirement WIAM_17a introduces the concept of a keystore, which has not been identified as a component of a Wallet Unit in the ARF thus far. The reason for introducing a keystore as a Wallet Unit component separate from the WSCA/WSCD is the following. From <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402981" title="Commission Implementing Regulation (EU) 2024/2981 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European">CIR 2024/2981</a> it is clear that a WSCA/WSCD must be evaluated at Level of Assurance High. For example, Annex IV, section 2 (3) states</p>
 <blockquote>
 <p>As a prerequisite to the certification under national certification schemes, the WSCD shall be assessed against the requirements of assurance level high as set out in Implementing Regulation (EU) 2015/1502.</p>
 </blockquote>
-<p>Other requirements in <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402981" title="Commission Implementing Regulation (EU) 2024/2981 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European Parli">CIR 2024/2981</a> confirm this. This implies that the cryptographic assets belonging to attestations other than the PID and the WUA do not need to be managed by the WSCA/WSCD, since they do not need to achieve Level of Assurance High. Instead, these cryptographic assets are managed by a keystore. Therefore, the keystore should be introduced in the ARF main document, and all occurrences of the term 'WSCA/WSCD' should be reviewed to see if they apply to the WSCA/WSCD, the keystore, or both.</p>
+<p>Other requirements in <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402981" title="Commission Implementing Regulation (EU) 2024/2981 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European">CIR 2024/2981</a> confirm this. This implies that the cryptographic assets belonging to attestations other than the PID and the WUA do not need to be managed by the WSCA/WSCD, since they do not need to achieve Level of Assurance High. Instead, these cryptographic assets are managed by a keystore. Therefore, the keystore should be introduced in the ARF main document, and all occurrences of the term 'WSCA/WSCD' should be reviewed to see if they apply to the WSCA/WSCD, the keystore, or both.</p>
 <p>In addition, the ARF editors team considers that the first, third, and fourth parts of the proposed requirement WIAM_17a are precisions or additions of existing requirements WIAM_14 - WIAM_17. It is therefore better to adapt these requirements than to add WIAM_17a as a separate requirement. See our proposal in section 4.1 below.</p>
 <p><strong>Certification of WSCA/WSCD is not required legally</strong></p>
 <p>Finally, in the public discussion in GitHub, it was pointed out that certification of the WSCA/WSCD is not required by the legislation, in contrast to what WIAM_14 currently says. According to Commission Implementing Regulation (EU) 2024/2981, an evaluation suffices. This will be added to WIAM_14.</p>
@@ -2951,7 +3652,7 @@ In the remaining two contexts (1) and (3), the LoA of authentication does not re
 <h2 id="5-relation-to-other-topics">5 Relation to Other Topics<a class="headerlink" href="#5-relation-to-other-topics" title="Link to this section">&para;</a></h2>
 <h3 id="51-z-device-bound-attestations">5.1 Z - Device-bound Attestations<a class="headerlink" href="#51-z-device-bound-attestations" title="Link to this section">&para;</a></h3>
 <p>The issue of non device-bound attestation is a subject of comprehensive discussion within the Topic Z and the outcome of the discussion needs to be taken into account if needed.</p>
-<p>The current ARF requirements do not distinguish whether, in the context of attribute presentations, the authentication process of the User to the device concerns device-bound or non-device-bound attestation. At the same time, there are use cases such as event tickets or discount vouchers, where the bound to the device is not needed or even not wanted (eg. for ensuring easy portability). In such cases the level of assurance needed by the Wallet-Relying Party is minimal. Therefore, the requirements related to authentication of the User to the device might be significantly relaxed, but not avoided at all (see as Article 3(1) of <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402979" title="Commission Implementing Regulation 2024/2979 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European Parliament">CIR 2024/2979</a> and section 2.2 of this document).
+<p>The current ARF requirements do not distinguish whether, in the context of attribute presentations, the authentication process of the User to the device concerns device-bound or non-device-bound attestation. At the same time, there are use cases such as event tickets or discount vouchers, where the bound to the device is not needed or even not wanted (eg. for ensuring easy portability). In such cases the level of assurance needed by the Wallet-Relying Party is minimal. Therefore, the requirements related to authentication of the User to the device might be significantly relaxed, but not avoided at all (see as Article 3(1) of <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402979" title="Commission Implementing Regulation (EU) 2024/2979 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European">CIR 2024/2979</a> and section 2.2 of this document).
 At this stage, there are not envisioned any specific requirements / HLRs for non-device bound attestations - the current ARF implicitly allows already using the lower assurance level for authentication in such case.</p>
 <h3 id="52-relation-to-risk-register">5.2 Relation to Risk Register<a class="headerlink" href="#52-relation-to-risk-register" title="Link to this section">&para;</a></h3>
 <p>The risk register for European Digital Identity Wallets [RiskRegister] contains (at least) the following risks that are related to the authentication of the User to the device:</p>
@@ -3119,15 +3820,15 @@ At this stage, there are not envisioned any specific requirements / HLRs for non
 <td>Architecture and Reference Framework Development plan 2025, European Commission, v1.0</td>
 </tr>
 <tr>
-<td>[Topic 40]</td>
+<td><a class="autorefs autorefs-internal" title="A.2.3.23 Topic 40 - Wallet Instance installation and Wallet Unit activation and management" href="../../annexes/annex-2/annex-2.02-high-level-requirements-by-topic/#a2323-topic-40-wallet-instance-installation-and-wallet-unit-activation-and-management">Topic 40</a></td>
 <td>Topic 40 - Wallet Instance installation and Wallet Unit activation and management</td>
 </tr>
 <tr>
-<td><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401183" title="Regulation (EU) 2024/1183 of the European Parliament and of the Council of 11 April 2024 amending Regulation (EU) No 910/2014 as regards establishing the Europe">European Digital Identity Regulation</a></td>
+<td><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401183" title="Regulation (EU) 2024/1183 of the European Parliament and of the Council of 11 April 2024 amending Regulation (EU) No 910/2014 as regards establishing the">European Digital Identity Regulation</a></td>
 <td>Regulation (EU) 2024/1183 of the European Parliament and of the Council of 11 April 2024 amending Regulation (EU) No 910/2014 as regards establishing the European Digital Identity Framework</td>
 </tr>
 <tr>
-<td><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402979" title="Commission Implementing Regulation 2024/2979 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European Parliament">CIR 2024/2979</a></td>
+<td><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402979" title="Commission Implementing Regulation (EU) 2024/2979 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European">CIR 2024/2979</a></td>
 <td><a href="https://eur-lex.europa.eu/eli/reg_impl/2024/2979/oj/eng">Commission Implementing Regulation (EU) 2024/2979 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European Parliament and of the Council as regards the integrity and core functionalities of European Digital Identity Wallets</a></td>
 </tr>
 <tr>
@@ -3135,7 +3836,7 @@ At this stage, there are not envisioned any specific requirements / HLRs for non
 <td><a href="https://eur-lex.europa.eu/eli/reg_impl/2015/1502/oj/eng">Commission Implementing Regulation (EU) 2024/2979 of 8 September 2015 on setting out minimum technical specifications and procedures for assurance levels for electronic identification means pursuant to Article 8(3) of Regulation (EU) No 910/2014 of the European Parliament and of the Council on electronic identification and trust services for electronic transactions in the internal market</a></td>
 </tr>
 <tr>
-<td><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402981" title="Commission Implementing Regulation (EU) 2024/2981 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European Parli">CIR 2024/2981</a></td>
+<td><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402981" title="Commission Implementing Regulation (EU) 2024/2981 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European">CIR 2024/2981</a></td>
 <td><a href="https://eur-lex.europa.eu/eli/reg_impl/2024/2979/oj/eng">Commission Implementing Regulation (EU) 2024/2979 of 28 November 2024 laying down rules for the application of Regulation (EU) No 910/2014 of the European Parliament and the Council as regards the certification of European Digital Identity Wallets</a></td>
 </tr>
 <tr>
@@ -3154,6 +3855,38 @@ At this stage, there are not envisioned any specific requirements / HLRs for non
 
 
 
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2026-07-21T07:12:12+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2026-07-21</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-09-03T12:52:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-09-03</span>
+  </span>
+
+    
+    
+    
+  </aside>
 
 
 
@@ -3164,6 +3897,8 @@ At this stage, there are not envisioned any specific requirements / HLRs for non
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
@@ -3222,7 +3957,7 @@ At this stage, there are not envisioned any specific requirements / HLRs for non
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      European Union, 2025 - Licensed under the EUPL-1.2 or later
+      © European Commission, 2026. Licensed under CC BY 4.0.
     </div>
   
   
@@ -3246,10 +3981,14 @@ At this stage, there are not envisioned any specific requirements / HLRs for non
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "toc.integrate", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.action.edit", "content.action.view", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
       
     
   </body>
